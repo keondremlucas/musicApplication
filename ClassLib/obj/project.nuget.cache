@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "vv9g/O0VT+Cmwt23yJzmL3uiJFg5m3bZE0BWoqXhMC9wcqrSQswKYXliknYEV2K0l+vDiZ/BNdorbI3v6uIt7Q==",
+  "dgSpecHash": "/1uRnITuI7kKXj/SEb5SFNz8kk91/uhGsDZj1uEUIgH5vGz/OKPLoHhyXE0i0a2pyyY5m/MAY4hNqxnZbJ7W9w==",
   "success": true,
   "projectFilePath": "C:\\Users\\lucas\\musicApp\\ClassLib\\ClassLib.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lucas\\.nuget\\packages\\microsoft.data.sqlite\\5.0.10\\microsoft.data.sqlite.5.0.10.nupkg.sha512",
+    "C:\\Users\\lucas\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.10\\microsoft.data.sqlite.core.5.0.10.nupkg.sha512",
+    "C:\\Users\\lucas\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\lucas\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
+    "C:\\Users\\lucas\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\lucas\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
+    "C:\\Users\\lucas\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
   "logs": []
 }

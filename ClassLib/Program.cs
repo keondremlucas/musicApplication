@@ -6,7 +6,24 @@ namespace ClassLib
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            Sql.ShowAllAlbums();
+
+            Console.WriteLine();
+            Sql.ShowAllSongs();
+
+            Console.WriteLine();
+            Sql.ShowAllArtist();
+
+            Console.WriteLine();
+            Sql.RuntimeGreater3();
+
+            Console.WriteLine();
+            Sql.FindAlbumByArtist("kanye");
+
+            Console.WriteLine();
+            Sql.FindSongByArtist("kanye");
+
         }
     }
 }
