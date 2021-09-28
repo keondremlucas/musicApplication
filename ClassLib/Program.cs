@@ -24,6 +24,15 @@ namespace ClassLib
             Console.WriteLine();
             Sql.FindSongByArtist("kanye");
 
+            Console.WriteLine();
+            Sql.TotalSongsbyArtist("kanye");
+
+            Console.WriteLine();
+            Sql.FindByGenre("rap");
+
+            Console.WriteLine();
+            Sql.NumberOfSongsByAlbum("CLB");
+
         }
     }
 }

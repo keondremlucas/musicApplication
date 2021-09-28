@@ -108,24 +108,93 @@ namespace ClassLib
             connection.Open();
             var command = connection.CreateCommand();
             command.CommandText = @"
-            SELECT trk.*, art.*
-            FROM artists art
-            JOIN tracklist trk ON trk.artist_id = art.id
+              SELECT tl.*, a.*, s.*
+              FROM tracklist tl
+              JOIN artists a on a.id = tl.artist_id
+              JOIN songs s on s.id = tl.song_id
+              WHERE a.name LIKE $artistname;
     
             ";
-            //  command.Parameters.AddWithValue("$artistname", artistname);
+            command.Parameters.AddWithValue("$artistname", artistname);
 
             using var reader = command.ExecuteReader();
             while (reader.Read())
             {
+                var name = reader.GetString(5);
+                var songname = reader.GetString(7);
+                
+                
+               
+               
+                    Console.WriteLine($"Artist: {name} - Song: {songname}");
+                
+            }
+
+            
+        }
+           public static void TotalSongsbyArtist(string artistname)
+        {
+            using var connection = new SqliteConnection("Data Source=./musicdb.db");
+            connection.Open();
+            var command = connection.CreateCommand();
+            command.CommandText = @"
+            SELECT tl.*, a.*, s.*
+            FROM tracklist tl
+            JOIN artists a on a.id = tl.artist_id
+            JOIN songs s on s.id = tl.song_id
+            WHERE a.name LIKE $artistname;
+            SELECT count(*) FROM $artistname";
+            command.Parameters.AddWithValue("$artistname", artistname);
+
+            using var reader = command.ExecuteReader();
+            var holder = "";
+            while (reader.Read())
+            {
+                var count = reader.GetString(0);
+                var runtime = reader.GetString(4);
+                holder = count;
+                
+            }
+            
+            Console.WriteLine($"Total Songs by {artistname.ToUpper()}: {holder}");
+        }
+
+          public static void FindByGenre(string genre)
+        {
+            using var connection = new SqliteConnection("Data Source=./musicdb.db");
+            connection.Open();
+            var command = connection.CreateCommand();
+            command.CommandText = @"
+            SELECT *  
+            FROM songs WHERE genre LIKE $genre";
+            command.Parameters.AddWithValue("$genre", genre);
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
                 var name = reader.GetString(1);
-                var val2 = reader.GetString(2);
-                var val3 = reader.GetString(3);
-                
-               
-               
-                    Console.WriteLine($"Artist: {name} - {val2} - {val3}");
-                
+                var runtime = reader.GetString(4);
+
+                Console.WriteLine($"Song: {name}, {genre}");
+            }
+        }
+
+          public static void NumberOfSongsByAlbum(string albumname)
+        {
+            using var connection = new SqliteConnection("Data Source=./musicdb.db");
+            connection.Open();
+            var command = connection.CreateCommand();
+            command.CommandText = @"
+            SELECT *  
+            FROM albums WHERE name LIKE $albumname;
+            SELECT count(*);";
+            command.Parameters.AddWithValue("$albumname",albumname);
+            using var reader = command.ExecuteReader();
+            var holder = "";
+            while (reader.Read())
+            {
+                var count = reader.GetString(0);
+                holder = count;
+                Console.WriteLine($"Total Songs: {holder}, {albumname}");
             }
         }
     }
